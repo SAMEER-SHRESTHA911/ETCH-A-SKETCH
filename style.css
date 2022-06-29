@@ -6,7 +6,10 @@
     font-size: 20px;
     box-sizing: border-box;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color :rgb(65, 103, 207)
+    /* background-color :rgb(65, 103, 207) */
+}
+.main{
+    background-image : url("images/bg.jpeg");
 }
 h1
 {
@@ -35,6 +38,7 @@ h1
     box-shadow: 1em;
     -webkit-box-shadow: 4px 2px 5px 5px rgba(0,0,0,0.14); 
     box-shadow: 4px 2px 5px 5px rgba(0,0,0,0.69);
+    border-radius: 0.2em;
 }
 .main
 {
@@ -70,4 +74,5 @@ button
 .box
 {
     margin : 2px;
+    border-radius: 0.1em;
 }

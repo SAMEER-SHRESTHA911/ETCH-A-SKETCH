@@ -1,13 +1,8 @@
 const blackButton = document.getElementById("blackButton");
-const radnomButton = document.getElementById("randomButton");
+const randomButton = document.getElementById("randomButton");
 const eraseButton = document.getElementById("eraseButton");
 const resetButton = document.getElementById("resetButton");
 let btnContainer = document.getElementsByClassName("buttons");
-
-// document.getElementById('blackButton').innerText = b;
-// document.getElementById('randomButton').innerText = r;
-// document.getElementById('eraseButton').innerText = e;
-// document.getElementById('resetButton').innerText = r;
 
 function renderSquare()
 {
@@ -32,7 +27,6 @@ function blackColor()
         box.style.backgroundColor = 'black';
     }))
 }
-blackColor();
 
 function randomColor()
 {
@@ -53,7 +47,25 @@ function eraseColor()
 }
 function resetColor()
 {
-    clearGrid();
-    renderSquare();
+    const squares = document.querySelectorAll('.box');
+    squares.forEach((square => square.style.backgroundColor = 'white'));
 }
-// function Window()
+
+
+blackButton.addEventListener('click',(e) => {
+    blackColor();
+});
+
+randomButton.addEventListener('click',(e) => {
+    randomColor();
+});
+
+eraseButton.addEventListener('click',(e) => {
+    eraseColor();
+});
+
+resetButton.addEventListener('click',(e) => {
+    resetColor();
+}
+);
+
