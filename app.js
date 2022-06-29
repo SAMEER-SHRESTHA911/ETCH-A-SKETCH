@@ -2,44 +2,58 @@ const blackButton = document.getElementById("blackButton");
 const radnomButton = document.getElementById("randomButton");
 const eraseButton = document.getElementById("eraseButton");
 const resetButton = document.getElementById("resetButton");
-const greyButton = document.getElementById("greyButton");
 let btnContainer = document.getElementsByClassName("buttons");
 
-function clearGrid()
-{
-    clearGrid();
-    renderSquare();
-}
+// document.getElementById('blackButton').innerText = b;
+// document.getElementById('randomButton').innerText = r;
+// document.getElementById('eraseButton').innerText = e;
+// document.getElementById('resetButton').innerText = r;
 
 function renderSquare()
 {
         let board = document.querySelector(".board");
         board.style.gridTemplateColumns = "repeat(16, 1fr)";
         board.style.gridTemplateRows = "repeat(16, 1fr)";
-
-    {
         for(let i = 0; i<256 ; i++)
         {
             let square = document.createElement("div");
             square.style.backgroundColor = "white";
-            board.insertAdjacentElement("beforeend",square);
-            board.appendChild("div").add.classList('square');
+            board.appendChild(square).classList.add('box');
         }
-    }
+        
 }
 renderSquare();
 
-function greyColor()
+function blackColor()
 {
-    const boxs = document.querySelectorAll('.square');
-    greyButton.textContent = "Grey";
-    greyButton.addEventListener("click",() =>
+    const boxs = document.querySelectorAll('.box');
+    boxs.forEach(box => box.addEventListener('mouseover',(e) =>
     {
-        boxs.forEach(square => square.addEventListener("mouseover", () =>{
-            let Rnum = Math.floor(Math.random()*255)
-            square.style.backgroundColor = `rgb($(Rnum),$(Rnum),$(Rnum)) `;
-        }));
-    })
-    btnContainer.appendChild(greyButton).classList.add('btn')
+        box.style.backgroundColor = 'black';
+    }))
 }
-greyColor();
+blackColor();
+
+function randomColor()
+{
+    const boxs = document.querySelectorAll('.box');
+    boxs.forEach(box => box.addEventListener('mouseover',(e) =>
+    {
+        let Rnum = Math.floor(Math.random()*256).toString(16) +  Math.floor(Math.random()*256).toString(16) + Math.floor(Math.random()*256).toString(16);
+        box.style.backgroundColor = `#${Rnum}`; 
+    }))
+}
+function eraseColor()
+{
+    const boxs = document.querySelectorAll('.box');
+    boxs.forEach(box => box.addEventListener('mouseover',(e) =>
+    {
+        box.style.backgroundColor = 'white';
+    }))
+}
+function resetColor()
+{
+    clearGrid();
+    renderSquare();
+}
+// function Window()
